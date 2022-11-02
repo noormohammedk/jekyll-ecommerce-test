@@ -1,8 +1,9 @@
-<div class="product flex">
+<div class="product {{product.category}}">
+    <img src="{{ product.image }}" alt="{{ product.name }} product image" class="product__image center">
     <div class="product__information">
-       <h2 class="product__title">{{ product.name }}</h2>
-       <p class="product__description">{{ product.content }}</p>
+       <h3 class="product__title">{{ product.name }} <span class="product__published">{{ product.published }}</span></h3>
+       <p class="product__author"> by {{product.author}} <span class="product__format">({{product.format}})</span></p>
+       <p class="product__caption">{{ product.caption }}<span><a class="btn-expand-caption" href="#">read more</a></span></p>
        {% include product-definition.html %}
     </div>
-    <img src="{{ product.image }}" alt="{{ product.name }} product image" class="product__image">
 </div>
