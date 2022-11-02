@@ -1,0 +1,14 @@
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {% include head.html %}
+<body>
+  {% include header.html %}
+ <main class="main">
+ <div class="products">
+ {{ content }}
+ </div>
+ </main>
+</body>
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.2.2/default/snipcart.css" />
+<script async src="https://cdn.snipcart.com/themes/v3.2.2/default/snipcart.js"></script>
+<div id="snipcart" data-api-key="NGEwZDZhYzMtOGVmYi00MjVhLTg5Y2UtN2JjYTUyYTZlZjQ0NjM4MDI3MTM3MzU5NjIwNjU1" hidden></div>
+</html>
