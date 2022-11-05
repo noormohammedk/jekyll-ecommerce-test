@@ -3,7 +3,25 @@
     <div class="product__information">
        <h3 class="product__title">{{ product.name }} <span class="product__published">{{ product.published }}</span></h3>
        <p class="product__author"> by {{product.author}} <span class="product__format">({{product.format}})</span></p>
-       <p class="product__caption">{{ product.caption }}<span><a class="btn-expand-caption" href="#">read more</a></span></p>
+       <span class="product__genre">Genre: <a href="#">{{product.genre}}</a> <span class="product__detailed"><a href="#">more</a></span></span>
+       
+       <div class="pricing-box">
+            {% if product.discount > 0 %}
+            {% assign discount_amount = product.mrp | times: product.discount | divided_by: 100 %}    
+            <span class="product__sale__price">&#x20B9;{{ product.mrp | minus: discount_amount }}</span>
+            <span class="product__mrp__striked">&#x20B9;{{ product.mrp }}</span>
+            <span class="product__mrp__striked__discount">&#40;{{ product.discount }}&percnt; off&#41;</span>
+            {% else %}
+            <span class="product__sale__price">&#x20B9;{{ product.mrp }}</span> 
+            {% endif %}
+            <span class="shipping">&nbsp;&#43; shipping</span>
+            <!-- <span class="calc-shipping"><a href="#">click to check shipping</a></span> -->
+            <div class="shipping-info">
+                <label id="label_zip" for="zip">Enter Zipcode</label>
+                <input type="text" name="zip" id="zip" placeholder="eg. 744101">
+                <span class="free-delivery">Free Delivery on order above &#x20B9;999</span>
+            </div>
+       </div>
        {% include product-definition.html %}
     </div>
 </div>
